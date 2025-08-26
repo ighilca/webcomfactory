@@ -22,7 +22,6 @@ deploy.md
 
 # Fichiers de configuration de développement
 vite.config.js
-build.js
 start.bat
 start.ps1
 
