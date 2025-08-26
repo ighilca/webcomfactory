@@ -464,12 +464,17 @@ section {
 /* CTA intermédiaire dans la section pourquoi nous choisir */
 .why-us-cta {
   text-align: center;
-  margin-top: 3rem;
+  margin: 3rem auto 0;
   padding: 2rem;
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   border-radius: 16px;
   color: white;
   box-shadow: var(--shadow-lg);
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .why-us-cta p {
@@ -477,24 +482,25 @@ section {
   font-weight: 600;
   margin-bottom: 1.5rem;
   color: white;
+  text-align: center;
 }
 
 .why-us-cta .cta-secondary-btn {
   display: inline-block;
-  background: white;
-  color: var(--primary-color);
+  background: var(--primary-color);
+  color: white;
   padding: 12px 24px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 2px solid var(--primary-color);
 }
 
 .why-us-cta .cta-secondary-btn:hover {
-  background: transparent;
+  background: var(--primary-dark);
   color: white;
-  border-color: white;
+  border-color: var(--primary-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
