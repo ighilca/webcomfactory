@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Animation des engrenages au hover
-  const digitalGears = document.querySelector('.digital-gears');
+  const digitalGears = document.querySelector('.digitalGears');
   if (digitalGears) {
     digitalGears.addEventListener('mouseenter', function() {
       this.style.transform = 'scale(1.1)';
@@ -210,6 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
     digitalGears.addEventListener('mouseleave', function() {
       this.style.transform = 'scale(1)';
     });
+  }
+  
+  // Mise à jour automatique de l'année dans le footer
+  const currentYearElement = document.getElementById('current-year');
+  if (currentYearElement) {
+    const currentYear = new Date().getFullYear();
+    currentYearElement.textContent = currentYear;
   }
 
   // Effet parallaxe subtil sur le hero
