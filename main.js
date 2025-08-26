@@ -91,41 +91,80 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(card);
   });
 
-  // Gestion des formulaires
+  // Gestion des formulaires avec EmailJS
   const contactForm = document.querySelector('.contact-form form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
       // Récupération des données du formulaire
       const formData = new FormData(this);
       const name = this.querySelector('input[type="text"]').value;
       const email = this.querySelector('input[type="email"]').value;
+      const phone = this.querySelector('input[type="tel"]')?.value || '';
       const message = this.querySelector('textarea').value;
       
-      // Validation basique
-      if (!name || !email || !message) {
-        showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
-        return;
+      // Validation avec EmailJS si disponible
+      if (window.EmailJSConfig && window.EmailJSConfig.validateContactForm) {
+        const validation = window.EmailJSConfig.validateContactForm({ name, email, phone, message });
+        
+        if (!validation.isValid) {
+          showNotification(validation.errors.join(', '), 'error');
+          return;
+        }
+      } else {
+        // Validation basique de fallback
+        if (!name || !email || !message) {
+          showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
+          return;
+        }
+        
+        if (!isValidEmail(email)) {
+          showNotification('Veuillez entrer une adresse email valide.', 'error');
+          return;
+        }
       }
       
-      if (!isValidEmail(email)) {
-        showNotification('Veuillez entrer une adresse email valide.', 'error');
-        return;
+      // Affichage du loading
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Envoi en cours...';
+      submitBtn.disabled = true;
+      
+      try {
+        // Envoi via EmailJS
+        if (window.EmailJSConfig && window.EmailJSConfig.sendEmail) {
+          const result = await window.EmailJSConfig.sendEmail({ name, email, phone, message });
+          
+          if (result.success) {
+            showNotification(result.message, 'success');
+            this.reset();
+            
+            // Tracking SEO si disponible
+            if (window.SEOConfig && window.SEOConfig.trackContactForm) {
+              window.SEOConfig.trackContactForm({ name, email, phone, message });
+            }
+          } else {
+            showNotification(result.message, 'error');
+          }
+        } else {
+          // Fallback si EmailJS n'est pas configuré
+          showNotification('Envoi en cours...', 'info');
+          
+          setTimeout(() => {
+            showNotification('Votre message a été envoyé avec succès ! Nous vous recontacterons rapidement.', 'success');
+            this.reset();
+          }, 2000);
+        }
+        
+      } catch (error) {
+        console.error('Erreur lors de l\'envoi:', error);
+        showNotification('Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
+      } finally {
+        // Restauration du bouton
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
       }
-      
-      // Tracking SEO - Envoi du formulaire
-      if (window.SEOConfig && window.SEOConfig.trackContactForm) {
-        window.SEOConfig.trackContactForm({ name, email, message });
-      }
-      
-      // Simulation d'envoi
-      showNotification('Envoi en cours...', 'info');
-      
-      setTimeout(() => {
-        showNotification('Votre message a été envoyé avec succès ! Nous vous recontacterons rapidement.', 'success');
-        this.reset();
-      }, 2000);
     });
   }
 
