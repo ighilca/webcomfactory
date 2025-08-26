@@ -1,0 +1,45 @@
+# Fichiers de développement
+node_modules/
+.git/
+.gitignore
+.env
+.env.local
+.env.development
+.env.production
+
+# Fichiers de build temporaires
+dist/
+build/
+.temp/
+.cache/
+
+# Fichiers de documentation
+README.md
+COOKIES_SYSTEM.md
+SEO_OPTIMIZATION.md
+PROJET_TERMINE.md
+deploy.md
+
+# Fichiers de configuration de développement
+vite.config.js
+build.js
+start.bat
+start.ps1
+
+# Logs et fichiers temporaires
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# Fichiers de test
+__tests__/
+*.test.js
+*.spec.js
+coverage/
+
+# Fichiers de déploiement alternatifs
+netlify.toml
+vercel.json.bak

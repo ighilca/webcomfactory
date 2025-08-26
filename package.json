@@ -1,0 +1,17 @@
+{
+  "name": "webcom-factory-landing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:prod": "vite build && node build.js",
+    "preview": "vite preview",
+    "deploy:check": "npm run build && node build.js",
+    "vercel-build": "npm run build:prod"
+  },
+  "devDependencies": {
+    "vite": "^5.4.19"
+  }
+}

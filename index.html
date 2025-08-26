@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="logo-webcom-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <title>WebcomFactory - Agence Web Créative | Création de Sites & Marketing Digital</title>
+  <meta name="description" content="WebcomFactory, agence web créative à Montreal, Rennes et Bruxelles. Création de sites web, marketing digital, design & branding. Transformez vos idées en succès digital." />
+  <meta name="keywords" content="agence web, création site web, marketing digital, design branding, Montreal, Rennes, Bruxelles, développement web, SEO, e-commerce" />
+  <meta name="author" content="WebcomFactory" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="fr" />
+  <meta name="geo.region" content="CA, FR, BE" />
+  <meta name="geo.placename" content="Montreal, Rennes, Bruxelles" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webcomfactory.com/" />
+  <meta property="og:title" content="WebcomFactory - Agence Web Créative" />
+  <meta property="og:description" content="Transformez vos idées en expériences digitales qui performent. Création de sites web, marketing digital, design & branding." />
+  <meta property="og:image" content="https://webcomfactory.com/logo-webcom.png" />
+  <meta property="og:site_name" content="WebcomFactory" />
+  <meta property="og:locale" content="fr_FR" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://webcomfactory.com/" />
+  <meta property="twitter:title" content="WebcomFactory - Agence Web Créative" />
+  <meta property="twitter:description" content="Transformez vos idées en expériences digitales qui performent." />
+  <meta property="twitter:image" content="https://webcomfactory.com/logo-webcom.png" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://webcomfactory.com/" />
+  
+  <!-- DNS Prefetch et Preconnect -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preload des ressources critiques -->
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles critiques pour éviter le FOUC -->
+  <style>
+    /* Masquer le contenu jusqu'au chargement complet */
+    .preload-hidden {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .preload-hidden.loaded {
+      opacity: 1;
+    }
+    
+    /* Styles de base pour éviter le flash */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      line-height: 1.6;
+    }
+    
+    /* Masquer les éléments sensibles pendant le chargement */
+    .navbar, .hero, .services, .why-us, .tools-section, 
+    .realisations, .contact, .footer {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s ease;
+    }
+    
+    .navbar.loaded, .hero.loaded, .services.loaded, .why-us.loaded, 
+    .tools-section.loaded, .realisations.loaded, .contact.loaded, .footer.loaded {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    /* Spinner de chargement */
+    .loading-spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #e53e3e;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      z-index: 9999;
+    }
+    
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    .loading-spinner.hidden {
+      display: none;
+    }
+    
+    /* Fallback si le CSS principal ne charge pas */
+    .css-fallback {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+  </style>
+  
+  <!-- Script de fallback CSS -->
+  <script>
+    // Fallback si le CSS principal ne charge pas dans les 3 secondes
+    setTimeout(function() {
+      if (!document.querySelector('link[href="style.css"]')) {
+        document.querySelectorAll('.navbar, .hero, .services, .why-us, .tools-section, .realisations, .contact, .footer').forEach(function(el) {
+          el.classList.add('css-fallback');
+        });
+        document.getElementById('loading-spinner').classList.add('hidden');
+      }
+    }, 3000);
+  </script>
+  
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DigitalService",
+    "name": "WebcomFactory",
+    "description": "Agence web créative spécialisée dans la création de sites web, le marketing digital et le design branding",
+    "url": "https://webcomfactory.com",
+    "logo": "https://webcomfactory.com/logo-webcom.png",
+    "image": "https://webcomfactory.com/hero.png",
+    "telephone": "+14388795477",
+    "email": "hello@webcomfactory.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Montreal, Rennes, Bruxelles",
+      "addressCountry": ["CA", "FR", "BE"]
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "45.5017",
+      "longitude": "-73.5673"
+    },
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.5017",
+        "longitude": "-73.5673"
+      },
+      "geoRadius": "500000"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services Web",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Création de sites web",
+            "description": "Sites vitrines, e-commerce, plateformes interactives"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Marketing numérique",
+            "description": "SEO, campagnes PPC, gestion des réseaux sociaux"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Design & Branding",
+            "description": "Identité visuelle, UX/UI design, storytelling de marque"
+          }
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/webcomfactory",
+      "https://www.facebook.com/webcomfactory",
+      "https://www.instagram.com/webcomfactory"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Spinner de chargement -->
+  <div id="loading-spinner" class="loading-spinner"></div>
+  
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <div class="logo-image">
+          <img src="logo-webcom-icon.png" alt="WebcomFactory Logo" class="logo-img">
+        </div>
+        <div class="logo-text">
+          <div class="logo-main">WEBCOM FACTORY</div>
+          <div class="logo-tagline">AGENCE WEB</div>
+        </div>
+      </div>
+      <div class="nav-menu">
+        <a href="#services">Services</a>
+        <a href="#pourquoi-nous">Pourquoi nous</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" role="banner" aria-label="Section principale">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Transformez vos idées en expériences digitales qui performent.
+        </h1>
+        <p class="hero-subtitle">
+          WebcomFactory est l'usine créative qui propulse votre marque en ligne grâce à des solutions web sur mesure.
+        </p>
+        <button class="cta-primary" aria-label="Démarrer votre projet web">Parlez-nous de votre projet</button>
+      </div>
+      <div class="hero-visual">
+        <img src="hero.png" alt="WebcomFactory - Agence web créative spécialisée dans la création de sites et le marketing digital" class="hero-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services" role="region" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title" class="section-title">Nos Services</h2>
+      <div class="services-grid" role="list">
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">🌐</div>
+          <h3>Création de sites web</h3>
+          <p>Sites vitrines, e-commerce, plateformes interactives. Développement sur mesure pour répondre à vos besoins spécifiques.</p>
+        </article>
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">📈</div>
+          <h3>Marketing numérique</h3>
+          <p>SEO, campagnes PPC, gestion des réseaux sociaux. Stratégies digitales pour augmenter votre visibilité en ligne.</p>
+        </article>
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">🎨</div>
+          <h3>Design & Branding</h3>
+          <p>Identité visuelle, UX/UI design, storytelling de marque. Création d'une image de marque forte et mémorable.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi nous choisir -->
+  <section id="pourquoi-nous" class="why-us">
+    <div class="container">
+      <h2 class="section-title">Pourquoi choisir WebcomFactory ?</h2>
+      <div class="why-us-grid">
+        <div class="why-us-item">
+          <div class="why-us-icon">🏭</div>
+          <h3>Un savoir-faire éprouvé</h3>
+          <p>Expertise technique et créative reconnue dans le domaine du web.</p>
+        </div>
+        <div class="why-us-item">
+          <div class="why-us-icon">⚡</div>
+          <h3>Approche « factory »</h3>
+          <p>Process clairs, production efficace et résultats garantis.</p>
+        </div>
+        <div class="why-us-item">
+          <div class="why-us-icon">🎯</div>
+          <h3>Créatif & stratégique</h3>
+          <p>Pas seulement du beau, mais du performant et rentable.</p>
+        </div>
+        <div class="why-us-item">
+          <div class="why-us-icon">🤝</div>
+          <h3>Accompagnement humain</h3>
+          <p>Proximité et transparence avec nos clients à chaque étape.</p>
+        </div>
+      </div>
+      
+      <!-- CTA intermédiaire pour le SEO -->
+      <div class="why-us-cta">
+        <p>Prêt à transformer votre présence digitale ?</p>
+        <a href="#contact" class="cta-secondary-btn">Obtenir un devis gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Réalisations -->
+  <section id="realisations" class="realisations">
+    <div class="container">
+      <h2 class="section-title">Nos Réalisations</h2>
+      <p class="realisations-subtitle">Découvrez quelques-uns de nos projets qui transforment les idées en succès</p>
+      <div class="realisations-grid">
+        <div class="realisation-card" onclick="window.location.href='portfolio.html'">
+          <div class="realisation-visual">
+            <img src="portfolio/screencapture-lasourcespa-2025-08-26-11_59_27.png" alt="La Source Spa" class="realisation-img">
+          </div>
+          <h3>La Source Spa</h3>
+          <p class="realisation-category">Site Vitrine - Spa & Bien-être</p>
+          <p class="realisation-description">Site web élégant et zen avec réservation en ligne</p>
+        </div>
+        <div class="realisation-card" onclick="window.location.href='portfolio.html'">
+          <div class="realisation-visual">
+            <img src="portfolio/screencapture-originehotels-2025-08-26-11_58_42.png" alt="Origine Hotels" class="realisation-img">
+          </div>
+          <h3>Origine Hotels</h3>
+          <p class="realisation-category">Site Vitrine - Hôtellerie</p>
+          <p class="realisation-description">Site web premium avec galerie photos et descriptions</p>
+        </div>
+        <div class="realisation-card" onclick="window.location.href='portfolio.html'">
+          <div class="realisation-visual">
+            <img src="portfolio/screencapture-laboiteafil-2025-08-26-11_58_09.png" alt="La Boîte à Fil" class="realisation-img">
+          </div>
+          <h3>La Boîte à Fil</h3>
+          <p class="realisation-category">Site Vitrine - Artisanat</p>
+          <p class="realisation-description">Site web créatif pour atelier de couture</p>
+        </div>
+      </div>
+      <div class="realisations-cta">
+        <a href="portfolio.html" class="cta-primary portfolio-link">Voir tous nos projets</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outils et Technologies -->
+  <section class="tools-section">
+    <div class="container">
+      <h2 class="section-title">Des dizaines d'outils à votre service</h2>
+      <p class="tools-subtitle">Nous maîtrisons les meilleures technologies et plateformes du marché</p>
+      <div class="tools-grid">
+        <div class="tool-item">
+          <img src="outils/wordpress.png" alt="WordPress" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/Meta-Logo.png" alt="Meta" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/google-ads.png" alt="Google Ads" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/Logo_Google_Analytics.svg.png" alt="Google Analytics" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/Mailchimp-Logo-2018-present.png" alt="Mailchimp" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/Klaviyo_primary_logo.svg.png" alt="Klaviyo" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/HubSpot_Logo.svg.png" alt="HubSpot" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/Looker.svg.png" alt="Looker" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/Logo-monday.com-2.png" alt="Monday.com" class="tool-logo">
+        </div>
+        <div class="tool-item">
+          <img src="outils/shopify.png" alt="Shopify" class="tool-logo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Secondaire -->
+  <section class="cta-secondary">
+    <div class="container">
+      <h2>Vous avez une idée ? Nous avons l'usine pour la réaliser.</h2>
+      <button class="cta-secondary-btn">Demander une soumission</button>
+    </div>
+  </section>
+
+
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Contactez-nous</h2>
+      <div class="contact-content">
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <input type="text" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Votre email" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Votre message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="cta-final">Lancez votre projet maintenant</button>
+          </form>
+        </div>
+        <div class="contact-info">
+          <h2>Nos coordonnées</h2>
+          <h3>📍 Montreal - Rennes - Bruxelles</h3>
+          <h3>📱 4388795477</h3>
+          <h3>📧 hello@webcomfactory.com</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+                     <div class="footer-logo">
+             <div class="logo-image footer-logo-large">
+               <img src="logo-webcom-icon.png" alt="WebcomFactory Logo" class="logo-img">
+             </div>
+             <div class="logo-text">
+               <div class="logo-main">WEBCOM FACTORY</div>
+               <div class="logo-tagline">AGENCE WEB</div>
+             </div>
+           </div>
+        </div>
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pourquoi-nous">Pourquoi nous</a></li>
+            <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Création de sites</a></li>
+            <li><a href="#">Marketing digital</a></li>
+            <li><a href="#">Design & Branding</a></li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 WebcomFactory. Tous droits réservés.</p>
+        <div class="legal-links">
+          <a href="legal-notice.html">Mentions légales</a>
+          <a href="privacy-policy.html">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Banner de consentement aux cookies -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <h3>🍪 Gestion des cookies</h3>
+        <p>Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu. En continuant à naviguer, vous acceptez notre utilisation des cookies.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="accept-all-cookies" class="cookie-btn accept-btn">Accepter tous les cookies</button>
+        <button id="customize-cookies" class="cookie-btn customize-btn">Personnaliser</button>
+        <button id="reject-cookies" class="cookie-btn reject-btn">Refuser</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de personnalisation des cookies -->
+  <div id="cookie-modal" class="cookie-modal">
+    <div class="cookie-modal-content">
+      <div class="cookie-modal-header">
+        <h3>⚙️ Préférences des cookies</h3>
+        <button id="close-cookie-modal" class="close-cookie-modal">&times;</button>
+      </div>
+      <div class="cookie-modal-body">
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-toggle">
+              <input type="checkbox" id="essential-cookies" checked disabled>
+              <span class="slider"></span>
+            </label>
+            <div class="cookie-category-info">
+              <h4>Cookies essentiels</h4>
+              <p>Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-toggle">
+              <input type="checkbox" id="analytics-cookies">
+              <span class="slider"></span>
+            </label>
+            <div class="cookie-category-info">
+              <h4>Cookies d'analyse</h4>
+              <p>Nous aident à comprendre comment vous utilisez le site pour l'améliorer.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-toggle">
+              <input type="checkbox" id="preference-cookies">
+              <span class="slider"></span>
+            </label>
+            <div class="cookie-category-info">
+              <h4>Cookies de préférences</h4>
+              <p>Mémorisent vos choix et personnalisent votre expérience.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cookie-category">
+          <div class="cookie-category-header">
+            <label class="cookie-toggle">
+              <input type="checkbox" id="marketing-cookies">
+              <span class="slider"></span>
+            </label>
+            <div class="cookie-category-info">
+              <h4>Cookies marketing</h4>
+              <p>Utilisés pour afficher des publicités pertinentes et mesurer leur efficacité.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cookie-modal-footer">
+        <button id="save-cookie-preferences" class="cookie-btn accept-btn">Enregistrer mes préférences</button>
+        <button id="accept-all-cookies-modal" class="cookie-btn accept-btn">Accepter tous les cookies</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bouton de gestion des cookies (visible après consentement) -->
+  <button id="cookie-settings-btn" class="cookie-settings-btn" style="display: none;">
+    🍪 Gérer les cookies
+  </button>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

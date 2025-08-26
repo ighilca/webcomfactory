@@ -1,0 +1,36 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://webcomfactory.com/sitemap.xml
+
+# Délai de crawl recommandé
+Crawl-delay: 1
+
+# Pages importantes à indexer en priorité
+Allow: /index.html
+Allow: /portfolio.html
+Allow: /privacy-policy.html
+Allow: /legal-notice.html
+
+# Ressources statiques
+Allow: /logo-webcom.png
+Allow: /logo-webcom-icon.png
+Allow: /hero.png
+Allow: /style.css
+Allow: /main.js
+
+# Outils et portfolio
+Allow: /outils/
+Allow: /portfolio/
+
+# Empêcher l'indexation des fichiers de développement
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /build/
+Disallow: /dist/
+Disallow: /*.log
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /vite.config.js
+Disallow: /build.js

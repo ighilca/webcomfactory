@@ -1,0 +1,18 @@
+{
+  "env": {
+    "NODE_ENV": "production",
+    "VITE_APP_ENV": "production",
+    "VITE_APP_URL": "https://webcomfactory.com",
+    "VITE_APP_TITLE": "WebcomFactory - Agence Web Créative",
+    "VITE_APP_DESCRIPTION": "Transformez vos idées en expériences digitales qui performent. WebcomFactory est l'usine créative qui propulse votre marque en ligne.",
+    "VITE_GA_MEASUREMENT_ID": "G-XXXXXXXXXX",
+    "VITE_GTM_CONTAINER_ID": "GTM-XXXXXXX",
+    "VITE_COOKIE_DOMAIN": "webcomfactory.com",
+    "VITE_COOKIE_SECURE": "true"
+  },
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+}
