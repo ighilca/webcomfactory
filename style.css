@@ -133,6 +133,25 @@ body {
   color: var(--primary-color);
 }
 
+/* Bouton CTA dans la navigation */
+.nav-cta-btn {
+  background: var(--primary-color);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-color);
+}
+
+.nav-cta-btn:hover {
+  background: var(--primary-dark);
+  color: white !important;
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -1166,6 +1185,12 @@ section {
   
   .why-us-cta .cta-secondary-btn {
     padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive pour le bouton CTA de navigation */
+  .nav-cta-btn {
+    padding: 6px 12px;
     font-size: 0.9rem;
   }
 }
