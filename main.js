@@ -1,5 +1,4 @@
-// Import du CSS
-import './style.css'
+// Configuration EmailJS et gestion des formulaires
 
 // Gestion de la navigation mobile
 document.addEventListener('DOMContentLoaded', function() {
