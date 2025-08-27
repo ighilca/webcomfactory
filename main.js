@@ -218,6 +218,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentYear = new Date().getFullYear();
     currentYearElement.textContent = currentYear;
   }
+  
+  // Gestion des ancres au chargement de la page (pour les liens directs)
+  function handlePageLoadAnchors() {
+    if (window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // Attendre que la page soit complètement chargée
+        setTimeout(() => {
+          const navbar = document.querySelector('.navbar');
+          const headerHeight = navbar ? navbar.offsetHeight : 80;
+          const targetPosition = targetElement.offsetTop - headerHeight - 20;
+          
+          window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    }
+  }
+  
+  // Appeler la fonction au chargement et après un délai
+  handlePageLoadAnchors();
+  window.addEventListener('load', handlePageLoadAnchors);
 
   // Effet parallaxe subtil sur le hero
   const hero = document.querySelector('.hero');

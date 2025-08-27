@@ -28,6 +28,23 @@
       "destination": "/legal-notice.html"
     }
   ],
+  "redirects": [
+    {
+      "source": "/portfolio.html",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/politique-confidentialite",
+      "permanent": true
+    },
+    {
+      "source": "/legal-notice.html",
+      "destination": "/mentions-legales",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
