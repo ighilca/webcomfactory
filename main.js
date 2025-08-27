@@ -1,5 +1,5 @@
-// WebcomFactory - JavaScript simplifié pour la production
-// Version compatible avec tous les navigateurs
+// WebcomFactory - JavaScript ultra-simplifié pour la production
+// Version 100% compatible avec tous les navigateurs
 
 (function() {
   'use strict';
@@ -34,6 +34,9 @@
     
     // Année automatique
     updateCurrentYear();
+    
+    // Gestion des ancres au chargement de page
+    handlePageLoadAnchors();
   }
   
   // Navigation mobile
@@ -98,18 +101,18 @@
   // Formulaire de contact
   function initContactForm() {
     var contactForm = document.querySelector('.contact-form form');
+    
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        var name = this.querySelector('input[name="name"]').value;
-        var email = this.querySelector('input[name="email"]').value;
-        var phone = this.querySelector('input[name="phone"]') ? this.querySelector('input[name="phone"]').value : '';
-        var message = this.querySelector('textarea[name="message"]').value;
+        var name = this.querySelector('input[name="name"]').value.trim();
+        var email = this.querySelector('input[name="email"]').value.trim();
+        var message = this.querySelector('textarea[name="message"]').value.trim();
         
-        // Validation simple
+        // Validation basique
         if (!name || !email || !message) {
-          alert('Veuillez remplir tous les champs obligatoires.');
+          alert('Veuillez remplir tous les champs.');
           return;
         }
         
@@ -211,6 +214,27 @@
     var yearElement = document.getElementById('current-year');
     if (yearElement) {
       yearElement.textContent = new Date().getFullYear();
+    }
+  }
+  
+  // Gestion des ancres au chargement de page
+  function handlePageLoadAnchors() {
+    if (window.location.hash) {
+      var targetId = window.location.hash.substring(1);
+      var targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        setTimeout(function() {
+          var navbar = document.querySelector('.navbar');
+          var headerHeight = navbar ? navbar.offsetHeight : 80;
+          var targetPosition = targetElement.offsetTop - headerHeight - 20;
+          
+          window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
     }
   }
   
