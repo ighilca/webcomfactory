@@ -1,0 +1,5 @@
+[33m2e82690[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m  Correction des liens internes pour la production - Routes propres et gestion des ancres améliorée
+[33m68af9b9[m  Mise à jour automatique de l'année dans tous les footers
+[33m6136b45[m  Modification du menu : Contact remplacé par 'Lancez votre projet' en bouton CTA
+[33m770fdc7[m  Fix: Centrage parfait du CTA et bouton rouge pour la section why-us
+[33me801f16[m  Fix: Correction du design de la section why-us-cta avec styles et responsive

@@ -3,10 +3,10 @@
 
 // Configuration EmailJS
 const EMAILJS_CONFIG = {
-  // Remplacez par vos vrais IDs EmailJS
-  serviceId: 'service_webcomfactory', // ID de votre service EmailJS
-  templateId: 'template_webcomfactory_contact', // ID de votre template
-  publicKey: 'YOUR_PUBLIC_KEY_HERE', // Votre clé publique EmailJS
+  // Configuration temporaire pour le développement
+  serviceId: 'default_service', // Service par défaut pour les tests
+  templateId: 'default_template', // Template par défaut pour les tests
+  publicKey: 'default_key', // Clé par défaut pour les tests
   
   // Configuration des emails
   fromName: 'WebcomFactory Contact',
