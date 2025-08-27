@@ -24,8 +24,6 @@ const sourceFiles = [
   'legal-notice.html',
   'style.css',
   'main.js',
-  'emailjs-config.js',
-  'seo-config.js',
   'sitemap.xml',
   'robots.txt'
 ];
