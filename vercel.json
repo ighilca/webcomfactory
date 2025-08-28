@@ -46,6 +46,10 @@
     {
       "source": "/legal-notice.html",
       "destination": "/legal-notice.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
