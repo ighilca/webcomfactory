@@ -26,30 +26,10 @@
     {
       "source": "/mentions-legales",
       "destination": "/legal-notice.html"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/404.html",
-      "status": 404
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/portfolio.html",
-      "destination": "/portfolio",
-      "permanent": true
     },
     {
-      "source": "/privacy-policy.html",
-      "destination": "/politique-confidentialite",
-      "permanent": true
-    },
-    {
-      "source": "/legal-notice.html",
-      "destination": "/mentions-legales",
-      "permanent": true
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
