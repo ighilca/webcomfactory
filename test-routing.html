@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Routage - WebcomFactory</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .test-link { display: block; margin: 10px 0; padding: 10px; background: #f0f0f0; text-decoration: none; color: #333; }
+        .test-link:hover { background: #e0e0e0; }
+        .status { margin-left: 20px; color: #666; }
+    </style>
+</head>
+<body>
+    <h1>Test du Système de Routage WebcomFactory</h1>
+    
+    <h2>Routes Principales</h2>
+    <a href="/" class="test-link">🏠 Page d'accueil</a>
+    <a href="/portfolio" class="test-link">📁 Portfolio</a>
+    <a href="/politique-confidentialite" class="test-link">🔒 Politique de confidentialité</a>
+    <a href="/mentions-legales" class="test-link">⚖️ Mentions légales</a>
+    
+    <h2>Fichiers HTML Directs</h2>
+    <a href="/portfolio.html" class="test-link">📁 Portfolio.html (accès direct)</a>
+    <a href="/privacy-policy.html" class="test-link">🔒 Privacy-policy.html (accès direct)</a>
+    <a href="/legal-notice.html" class="test-link">⚖️ Legal-notice.html (accès direct)</a>
+    
+    <h2>Test des Ancres (Page d'accueil)</h2>
+    <a href="/#services" class="test-link">🔧 Section Services</a>
+    <a href="/#pourquoi-nous" class="test-link">❓ Section Pourquoi nous</a>
+    <a href="/#realisations" class="test-link">🎯 Section Réalisations</a>
+    <a href="/#contact" class="test-link">📞 Section Contact</a>
+    
+    <h2>Instructions de Test</h2>
+    <ol>
+        <li>Cliquez sur chaque lien pour tester la navigation</li>
+        <li>Vérifiez que les URLs se mettent à jour correctement</li>
+        <li>Vérifiez que le contenu s'affiche correctement</li>
+        <li>Testez la navigation retour avec le bouton "Précédent" du navigateur</li>
+    </ol>
+    
+    <h2>Statut des Routes</h2>
+    <div id="status">
+        <p>✅ Configuration Vercel nettoyée</p>
+        <p>✅ Navigation corrigée dans toutes les pages</p>
+        <p>⏳ Test après déploiement requis</p>
+    </div>
+</body>
+</html>
