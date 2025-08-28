@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "webcomfactory",
-  "comment": "Configuration corrigée - Suppression du conflit rewrites/routes - Force redeploy",
   "builds": [
     {
       "src": "package.json",
