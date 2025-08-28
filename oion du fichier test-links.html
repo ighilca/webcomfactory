@@ -1,0 +1,177 @@
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'deploy-vercel.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'emailjs-config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'legal-notice.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'main.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'portfolio.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'privacy-policy.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vercel.json', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex 5f3a358..7a25bd4 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -60,4 +60,3 @@[m [mjspm_packages/[m
+ [m
+ # Yarn Integrity file[m
+ .yarn-integrity[m
+[31m-.vercel[m
+[1mdiff --git a/build.js b/build.js[m
+[1mindex 161eea3..f35e88b 100644[m
+[1m--- a/build.js[m
+[1m+++ b/build.js[m
+[36m@@ -9,83 +9,11 @@[m [mconst __dirname = path.dirname(__filename);[m
+ [m
+ console.log('🚀 WebcomFactory - Build de production...\n');[m
+ [m
+[31m-// Créer le dossier dist s'il n'existe pas[m
+[32m+[m[32m// Vérifier que le dossier dist existe[m
+ const distDir = path.join(__dirname, 'dist');[m
+ if (!fs.existsSync(distDir)) {[m
+[31m-  fs.mkdirSync(distDir, { recursive: true });[m
+[31m-  console.log('📁 Dossier dist créé');[m
+[31m-}[m
+[31m-[m
+[31m-// Copier tous les fichiers HTML, CSS, JS et assets[m
+[31m-const sourceFiles = [[m
+[31m-  'index.html',[m
+[31m-  'portfolio.html', [m
+[31m-  'privacy-policy.html',[m
+[31m-  'legal-notice.html',[m
+[31m-  'style.css',[m
+[31m-  'main.js',[m
+[31m-  'sitemap.xml',[m
+[31m-  'robots.txt'[m
+[31m-];[m
+[31m-[m
+[31m-console.log('📄 Copie des fichiers principaux...');[m
+[31m-sourceFiles.forEach(file => {[m
+[31m-  const sourcePath = path.join(__dirname, file);[m
+[31m-  const destPath = path.join(distDir, file);[m
+[31m-  [m
+[31m-  if (fs.existsSync(sourcePath)) {[m
+[31m-    fs.copyFileSync(sourcePath, destPath);[m
+[31m-    console.log(`✅ ${file} copié`);[m
+[31m-  } else {[m
+[31m-    console.log(`⚠️  ${file} non trouvé, ignoré`);[m
+[31m-  }[m
+[31m-});[m
+[31m-[m
+[31m-// Copier les dossiers d'assets[m
+[31m-const assetFolders = ['logo-webcom-icon.png', 'logo-webcom.png', 'hero.png'];[m
+[31m-console.log('🖼️  Copie des images...');[m
+[31m-assetFolders.forEach(asset => {[m
+[31m-  const sourcePath = path.join(__dirname, asset);[m
+[31m-  const destPath = path.join(distDir, asset);[m
+[31m-  [m
+[31m-  if (fs.existsSync(sourcePath)) {[m
+[31m-    fs.copyFileSync(sourcePath, destPath);[m
+[31m-    console.log(`✅ ${asset} copié`);[m
+[31m-  }[m
+[31m-});[m
+[31m-[m
+[31m-// Copier le dossier outils[m
+[31m-const outilsDir = path.join(__dirname, 'outils');[m
+[31m-const outilsDestDir = path.join(distDir, 'outils');[m
+[31m-if (fs.existsSync(outilsDir)) {[m
+[31m-  if (!fs.existsSync(outilsDestDir)) {[m
+[31m-    fs.mkdirSync(outilsDestDir, { recursive: true });[m
+[31m-  }[m
+[31m-  [m
+[31m-  const outilsFiles = fs.readdirSync(outilsDir);[m
+[31m-  outilsFiles.forEach(file => {[m
+[31m-    const sourcePath = path.join(outilsDir, file);[m
+[31m-    const destPath = path.join(outilsDestDir, file);[m
+[31m-    fs.copyFileSync(sourcePath, destPath);[m
+[31m-  });[m
+[31m-  console.log(`✅ Dossier outils copié (${outilsFiles.length} fichiers)`);[m
+[31m-}[m
+[31m-[m
+[31m-// Copier le dossier portfolio[m
+[31m-const portfolioDir = path.join(__dirname, 'portfolio');[m
+[31m-const portfolioDestDir = path.join(distDir, 'portfolio');[m
+[31m-if (fs.existsSync(portfolioDir)) {[m
+[31m-  if (!fs.existsSync(portfolioDestDir)) {[m
+[31m-    fs.mkdirSync(portfolioDestDir, { recursive: true });[m
+[31m-  }[m
+[31m-  [m
+[31m-  const portfolioFiles = fs.readdirSync(portfolioDir);[m
+[31m-  portfolioFiles.forEach(file => {[m
+[31m-    const sourcePath = path.join(portfolioDir, file);[m
+[31m-    const destPath = path.join(portfolioDestDir, file);[m
+[31m-    fs.copyFileSync(sourcePath, destPath);[m
+[31m-  });[m
+[31m-  console.log(`✅ Dossier portfolio copié (${portfolioFiles.length} fichiers)`);[m
+[32m+[m[32m  console.log('❌ Dossier dist non trouvé. Exécutez d\'abord: npm run build');[m
+[32m+[m[32m  process.exit(1);[m
+ }[m
+ [m
+ console.log('✅ Build Vite terminé avec succès');[m
+[1mdiff --git a/deploy-vercel.ps1 b/deploy-vercel.ps1[m
+[1mindex 4907285..fc5769a 100644[m
+[1m--- a/deploy-vercel.ps1[m
+[1m+++ b/deploy-vercel.ps1[m
+[36m@@ -1,42 +1,51 @@[m
+ # Script de déploiement Vercel pour WebcomFactory[m
+[31m-# Exécutez ce script depuis PowerShell[m
+[32m+[m[32m# Utilisation: .\deploy-vercel.ps1[m
+ [m
+[31m-Write-Host "🚀 Déploiement WebcomFactory sur Vercel..." -ForegroundColor Green[m
+[32m+[m[32mWrite-Host "🚀 Déploiement WebcomFactory sur Vercel" -ForegroundColor Green[m
+[32m+[m[32mWrite-Host "=========================================" -ForegroundColor Green[m
+ [m
+[31m-# Vérifier si Vercel CLI est installé[m
+[32m+[m[32m# Vérifier que Vercel CLI est installé[m
+ try {[m
+     $vercelVersion = vercel --version[m
+     Write-Host "✅ Vercel CLI détecté: $vercelVersion" -ForegroundColor Green[m
+ } catch {[m
+[31m-    Write-Host "❌ Vercel CLI non installé. Installation..." -ForegroundColor Yellow[m
+[32m+[m[32m    Write-Host "❌ Vercel CLI non installé. Installation..." -ForegroundColor Red[m
+     npm install -g vercel[m
+ }[m
+ [m
+[31m-# Nettoyer le cache et les modules[m
+[31m-Write-Host "🧹 Nettoyage du cache..." -ForegroundColor Blue[m
+[31m-Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue[m
+[31m-Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue[m
+[31m-Remove-Item -Force package-lock.json -ErrorAction SilentlyContinue[m
+[32m+[m[32m# Nettoyer les builds précédents[m
+[32m+[m[32mWrite-Host "🧹 Nettoyage des builds précédents..." -ForegroundColor Yellow[m
+[32m+[m[32mif (Test-Path "dist") {[m
+[32m+[m[32m    Remove-Item -Recurse -Force "dist"[m
+[32m+[m[32m    Write-Host "✅ Dossier dist supprimé" -ForegroundColor Green[m
+[32m+[m[32m}[m
+ [m
+[31m-# Installer les dépendances[m
+[31m-Write-Host "📦 Installation des dépendances..." -ForegroundColor Blue[m
+[32m+[m[32m# Installation des dépendances[m
+[32m+[m[32mWrite-Host "📦 Installation des dépendances..." -ForegroundColor Yellow[m
+ npm install[m
+ [m
+ # Build de production[m
+[31m-Write-Host "🔨 Build de production..." -ForegroundColor Blue[m
+[32m+[m[32mWrite-Host "🔨 Build de production..." -ForegroundColor Yellow[m
+ npm run build:prod[m
+ [m
+ # Vérifier que le build a réussi[m
+ if (Test-Path "dist") {[m
+[31m-    Write-Host "✅ Build réussi !" -ForegroundColor Green[m
+[31m-    [m
+[31m-    # Déployer sur Vercel[m
+[31m-    Write-Host "🚀 Déploiement sur Vercel..." -ForegroundColor Blue[m
+[31m-    vercel --prod[m
+[31m-    [m
+[31m-    Write-Host "🎉 Déploiement terminé !" -ForegroundColor Green[m
+[31m-    Write-Host "🌐 Vérifiez votre site sur Vercel" -ForegroundColor Cyan[m
+[32m+[m[32m    Write-Host "✅ Build réussi dans le dossier dist" -ForegroundColor Green[m
+ } else {[m
+[31m-    Write-Host "❌ Échec du build !" -ForegroundColor Red[m
+[32m+[m[32m    Write-Host "❌ Échec du build" -ForegroundColor Red[m
+     exit 1[m
+ }[m
+[32m+[m
+[32m+[m[32m# Déploiement sur Vercel[m
+[32m+[m[32mWrite-Host "🚀 Déploie
