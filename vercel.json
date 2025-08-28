@@ -37,6 +37,18 @@
       "destination": "/routing-diagnostic.html"
     },
     {
+      "source": "/portfolio.html",
+      "destination": "/portfolio.html"
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/legal-notice.html",
+      "destination": "/legal-notice.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
