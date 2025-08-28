@@ -34,9 +34,12 @@
     {
       "source": "/routing-diagnostic",
       "destination": "/routing-diagnostic.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
-
   "headers": [
     {
       "source": "/(.*)",

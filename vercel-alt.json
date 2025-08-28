@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "name": "webcomfactory",
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.png",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.jpg",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.svg",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/portfolio",
+      "dest": "/portfolio.html"
+    },
+    {
+      "src": "/politique-confidentialite",
+      "dest": "/privacy-policy.html"
+    },
+    {
+      "src": "/mentions-legales",
+      "dest": "/legal-notice.html"
+    },
+    {
+      "src": "/test-routing",
+      "dest": "/test-routing.html"
+    },
+    {
+      "src": "/test-routing-fixed",
+      "dest": "/test-routing-fixed.html"
+    },
+    {
+      "src": "/routing-diagnostic",
+      "dest": "/routing-diagnostic.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+
+

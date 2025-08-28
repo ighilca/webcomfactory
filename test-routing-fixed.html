@@ -5,97 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Routage Corrigé - WebcomFactory</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 40px; 
-            background: #f5f5f5;
-        }
-        .test-link { 
-            display: block; 
-            margin: 10px 0; 
-            padding: 15px; 
-            background: #fff; 
-            text-decoration: none; 
-            color: #333; 
-            border-radius: 8px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s ease;
-        }
-        .test-link:hover { 
-            background: #007bff; 
-            color: white;
-            border-color: #007bff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,123,255,0.3);
-        }
-        .status { 
-            margin-left: 20px; 
-            color: #666; 
-            font-size: 14px;
-        }
-        .success { color: #28a745; }
-        .warning { color: #ffc107; }
-        .error { color: #dc3545; }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        h1 { color: #007bff; text-align: center; }
-        h2 { color: #495057; border-bottom: 2px solid #e9ecef; padding-bottom: 10px; }
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f8f9fa; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .test-link { display: block; margin: 15px 0; padding: 15px; background: #e3f2fd; text-decoration: none; color: #1976d2; border-radius: 5px; border-left: 4px solid #2196f3; }
+        .test-link:hover { background: #bbdefb; transform: translateX(5px); transition: all 0.3s ease; }
+        .status { margin: 20px 0; padding: 15px; background: #e8f5e8; border-radius: 5px; border-left: 4px solid #4caf50; }
+        .error { background: #ffebee; border-left-color: #f44336; }
+        .warning { background: #fff3e0; border-left-color: #ff9800; }
+        h1 { color: #1976d2; text-align: center; }
+        h2 { color: #424242; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🧪 Test du Système de Routage Corrigé</h1>
+        <h1>🔧 Test du Routage Corrigé WebcomFactory</h1>
         
-        <h2>Routes Principales (Doivent Fonctionner)</h2>
-        <a href="/" class="test-link">🏠 Page d'accueil</a>
-        <a href="/portfolio" class="test-link">📁 Portfolio</a>
+        <div class="status">
+            <h3>✅ Configuration Corrigée</h3>
+            <p>• Supprimé le conflit entre <code>rewrites</code> et <code>routes</code></p>
+            <p>• Gardé seulement les <code>rewrites</code> (plus moderne)</p>
+            <p>• Ajouté le catch-all <code>/(.*)</code> → <code>/index.html</code></p>
+        </div>
+        
+        <h2>🚀 Routes Principales à Tester</h2>
+        <a href="/" class="test-link">🏠 Page d'accueil (/)</a>
+        <a href="/portfolio" class="test-link">📁 Portfolio (/portfolio)</a>
         <a href="/politique-confidentialite" class="test-link">🔒 Politique de confidentialité</a>
         <a href="/mentions-legales" class="test-link">⚖️ Mentions légales</a>
-        <a href="/test-routing" class="test-link">🧪 Test de routage</a>
         
-        <h2>Test des Ancres (Page d'accueil)</h2>
+        <h2>🧪 Pages de Test</h2>
+        <a href="/test-routing" class="test-link">📋 Test de routage original</a>
+        <a href="/test-routing-fixed" class="test-link">🔧 Test de routage corrigé (cette page)</a>
+        <a href="/routing-diagnostic" class="test-link">🔍 Diagnostic de routage</a>
+        
+        <h2>📱 Test des Ancres (Page d'accueil)</h2>
         <a href="/#services" class="test-link">🔧 Section Services</a>
         <a href="/#pourquoi-nous" class="test-link">❓ Section Pourquoi nous</a>
         <a href="/#realisations" class="test-link">🎯 Section Réalisations</a>
         <a href="/#contact" class="test-link">📞 Section Contact</a>
         
-        <h2>Instructions de Test</h2>
+        <h2>📋 Instructions de Test</h2>
         <ol>
-            <li>Cliquez sur chaque lien pour tester la navigation</li>
-            <li>Vérifiez que les URLs se mettent à jour correctement</li>
-            <li>Vérifiez que le contenu s'affiche correctement</li>
-            <li>Testez la navigation retour avec le bouton "Précédent" du navigateur</li>
-            <li>Vérifiez que les ancres fonctionnent sur la page d'accueil</li>
+            <li><strong>Cliquez sur chaque lien</strong> pour tester la navigation</li>
+            <li><strong>Vérifiez les URLs</strong> dans la barre d'adresse</li>
+            <li><strong>Testez le bouton "Précédent"</strong> du navigateur</li>
+            <li><strong>Vérifiez que le contenu</strong> s'affiche correctement</li>
         </ol>
         
-        <h2>Statut des Corrections</h2>
-        <div id="status">
-            <p class="success">✅ Règle de fallback problématique supprimée</p>
-            <p class="success">✅ Routes spécifiques conservées</p>
-            <p class="success">✅ Configuration Vercel nettoyée</p>
-            <p class="warning">⏳ Redéploiement requis pour tester</p>
+        <div class="status">
+            <h3>🎯 Objectif</h3>
+            <p>Résoudre l'erreur <code>DEPLOYMENT_NOT_FOUND</code> en supprimant le conflit de configuration Vercel.</p>
         </div>
         
-        <h2>Ce qui a été corrigé</h2>
-        <ul>
-            <li><strong>Problème identifié :</strong> Règle de fallback `"/(.*)"` qui redirigait tout vers l'accueil</li>
-            <li><strong>Solution appliquée :</strong> Suppression de la règle problématique</li>
-            <li><strong>Résultat attendu :</strong> Navigation normale entre les pages</li>
-            <li><strong>Action requise :</strong> Redéployer sur Vercel</li>
-        </ul>
-        
-        <h2>Commandes de déploiement</h2>
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace;">
-            <p><strong>PowerShell :</strong></p>
-            <p>vercel --prod</p>
-            <p><strong>Ou avec le script :</strong></p>
-            <p>.\deploy-vercel.ps1</p>
+        <div class="warning">
+            <h3>⚠️ Important</h3>
+            <p>Après le déploiement, attendez 2-3 minutes avant de tester pour que Vercel applique les changements.</p>
         </div>
     </div>
 </body>
