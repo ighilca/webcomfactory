@@ -28,10 +28,11 @@
       "destination": "/test-routing.html"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/test-routing-fixed",
+      "destination": "/test-routing-fixed.html"
     }
   ],
+
   "headers": [
     {
       "source": "/(.*)",
