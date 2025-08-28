@@ -14,7 +14,7 @@
 
   <!-- Page Portfolio -->
   <url>
-    <loc>https://webcomfactory.com/portfolio.html</loc>
+    <loc>https://webcomfactory.com/portfolio</loc>
     <lastmod>2024-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Politique de confidentialité -->
   <url>
-    <loc>https://webcomfactory.com/privacy-policy.html</loc>
+    <loc>https://webcomfactory.com/politique-confidentialite</loc>
     <lastmod>2024-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -30,10 +30,18 @@
 
   <!-- Mentions légales -->
   <url>
-    <loc>https://webcomfactory.com/legal-notice.html</loc>
+    <loc>https://webcomfactory.com/mentions-legales</loc>
     <lastmod>2024-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- Page 404 (optionnel, pour la gestion d'erreur) -->
+  <url>
+    <loc>https://webcomfactory.com/404</loc>
+    <lastmod>2024-08-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
 
 </urlset>

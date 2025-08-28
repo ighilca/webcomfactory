@@ -241,9 +241,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Appeler la fonction au chargement et après un délai
+  // Gestion intelligente des ancres entre pages
+  function handleCrossPageAnchors() {
+    // Si on vient d'une autre page avec une ancre
+    if (document.referrer && document.referrer.includes('#')) {
+      const anchor = document.referrer.split('#')[1];
+      if (anchor && anchor !== window.location.pathname) {
+        // Rediriger vers l'accueil avec l'ancre
+        setTimeout(() => {
+          window.location.href = `/#${anchor}`;
+        }, 500);
+      }
+    }
+  }
+  
+  // Appeler les fonctions au chargement
   handlePageLoadAnchors();
-  window.addEventListener('load', handlePageLoadAnchors);
+  handleCrossPageAnchors();
+  window.addEventListener('load', () => {
+    handlePageLoadAnchors();
+    handleCrossPageAnchors();
+  });
 
   // Effet parallaxe subtil sur le hero
   const hero = document.querySelector('.hero');

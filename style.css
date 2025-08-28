@@ -152,6 +152,42 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+/* Breadcrumbs */
+.breadcrumbs {
+  background: var(--light-bg);
+  padding: 1rem 0;
+  margin-top: 80px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumbs .container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.breadcrumbs .separator {
+  color: var(--text-muted);
+  margin: 0 0.5rem;
+}
+
+.breadcrumbs span:last-child {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
