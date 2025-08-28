@@ -30,6 +30,10 @@
     {
       "source": "/test-routing-fixed",
       "destination": "/test-routing-fixed.html"
+    },
+    {
+      "source": "/routing-diagnostic",
+      "destination": "/routing-diagnostic.html"
     }
   ],
 

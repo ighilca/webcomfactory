@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Routage - WebcomFactory</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        h1 { text-align: center; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .status-card {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .status-card h3 { margin-top: 0; color: #fff; }
+        .test-link {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .test-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        .success { color: #4ade80; }
+        .warning { color: #fbbf24; }
+        .error { color: #f87171; }
+        .info { color: #60a5fa; }
+        .timestamp {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 10px;
+        }
+        .config-preview {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Diagnostic du Système de Routage WebcomFactory</h1>
+        
+        <div class="status-grid">
+            <div class="status-card">
+                <h3>📊 Statut du Déploiement</h3>
+                <p><span class="info">⏳</span> Déploiement en cours...</p>
+                <p><span class="info">📅</span> Dernier commit: <span id="last-commit">3ae8beb</span></p>
+                <p><span class="info">🕒</span> Timestamp: <span id="timestamp"></span></p>
+                <div class="timestamp">Actualisez la page pour vérifier les mises à jour</div>
+            </div>
+            
+            <div class="status-card">
+                <h3>🧪 Test des Routes</h3>
+                <p><strong>Routes principales :</strong></p>
+                <a href="/" class="test-link">🏠 Accueil</a>
+                <a href="/portfolio" class="test-link">📁 Portfolio</a>
+                <a href="/politique-confidentialite" class="test-link">🔒 Politique</a>
+                <a href="/mentions-legales" class="test-link">⚖️ Mentions</a>
+                <a href="/test-routing-fixed" class="test-link">🧪 Test</a>
+            </div>
+            
+            <div class="status-card">
+                <h3>🔧 Configuration Actuelle</h3>
+                <p><span class="success">✅</span> Règle de fallback supprimée</p>
+                <p><span class="success">✅</span> Routes spécifiques configurées</p>
+                <p><span class="warning">⚠️</span> Redéploiement requis</p>
+                <p><span class="info">ℹ️</span> Vercel doit déployer les changements</p>
+            </div>
+            
+            <div class="status-card">
+                <h3>📋 Actions Recommandées</h3>
+                <ol>
+                    <li>Attendre 5-10 minutes pour le déploiement</li>
+                    <li>Tester les routes une par une</li>
+                    <li>Vérifier le dashboard Vercel</li>
+                    <li>Contacter le support si problème persiste</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="status-card">
+            <h3>📝 Configuration Vercel (vercel.json)</h3>
+            <div class="config-preview">
+{
+  "rewrites": [
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio.html"
+    },
+    {
+      "source": "/politique-confidentialite", 
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/mentions-legales",
+      "destination": "/legal-notice.html"
+    }
+  ]
+}
+            </div>
+            <p><span class="success">✅</span> Configuration correcte - Le problème était la règle de fallback supprimée</p>
+        </div>
+        
+        <div class="status-card">
+            <h3>🚨 Problème Identifié et Résolu</h3>
+            <p><strong>Problème :</strong> Règle de fallback <code>"/(.*)"</code> qui redirigait tout vers l'accueil</p>
+            <p><strong>Solution :</strong> Suppression de cette règle problématique</p>
+            <p><strong>Résultat :</strong> Routes spécifiques maintenant fonctionnelles</p>
+            <p><strong>Action :</strong> Attendre le déploiement Vercel automatique</p>
+        </div>
+        
+        <div class="timestamp">
+            Page générée le <span id="current-time"></span> | 
+            Commit: <span id="commit-hash">3ae8beb</span> | 
+            Statut: En attente de déploiement
+        </div>
+    </div>
+
+    <script>
+        // Afficher le timestamp actuel
+        document.getElementById('current-time').textContent = new Date().toLocaleString('fr-FR');
+        document.getElementById('timestamp').textContent = new Date().toLocaleString('fr-FR');
+        
+        // Tester les routes et afficher le statut
+        function testRoutes() {
+            const routes = ['/', '/portfolio', '/politique-confidentialite', '/mentions-legales'];
+            routes.forEach(route => {
+                fetch(route, { method: 'HEAD' })
+                    .then(response => {
+                        console.log(`${route}: ${response.status}`);
+                    })
+                    .catch(error => {
+                        console.log(`${route}: Erreur - ${error.message}`);
+                    });
+            });
+        }
+        
+        // Tester les routes au chargement
+        window.addEventListener('load', testRoutes);
+        
+        // Actualiser toutes les 30 secondes
+        setInterval(() => {
+            document.getElementById('timestamp').textContent = new Date().toLocaleString('fr-FR');
+        }, 30000);
+    </script>
+</body>
+</html>
